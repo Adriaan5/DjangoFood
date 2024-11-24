@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda de Restaurantes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CarpetaCss/comida/buscar_restaurantes.css' %}">
+</head>
+<body>
+    <h1>Búsqueda de Restaurantes</h1>
+    <form method="POST" id="buscarRestaurantesForm">
+        {% csrf_token %}
+        <label for="nombre_comida">Selecciona el tipo de comida:</label>
+        <input type="text" name="nombre_comida" required>
+        <input type="hidden" name="latitud" id="latitud">
+        <input type="hidden" name="longitud" id="longitud">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div id="resultados">
+        {% if restaurantes_cercanos %}
+            <h2>Restaurantes Cercanos:</h2>
+            <ul>
+                {% for restaurante in restaurantes_cercanos %}
+                    <li>
+                        <strong>{{ restaurante.nombre }}</strong><br>
+                        Dirección: {{ restaurante.direccion }}<br>
+                        Descripción: {{ restaurante.descripcion }}<br>
+                        Distancia: {{ restaurante.distancia }} km
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    document.getElementById('latitud').value = position.coords.latitude;
+                    document.getElementById('longitud').value = position.coords.longitude;
+                },
+                (error) => {
+                    console.error('Error obteniendo ubicación:', error);
+                }
+            );
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Reserva</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CarpetaCss/Restaurantes/modificacion.css' %}">
+</head>
+<body>
+    <div class="bg_home">
+        <header class="header_nav">
+            <div class="container">
+                <h1>Modificar Datos de la Reserva</h1>
+            </div>
+        </header>
+
+        <main class="container">
+            <form action="{% url 'modificar_reserva' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="id_reserva" value="{{ reserva.id_reserva }}">
+
+                <div class="form-group">
+                    <label for="fecha_hora">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha_hora" name="fecha_hora" value="{{ reserva.fecha_hora|date:'Y-m-d\\TH:i' }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="num_personas">Número de Personas:</label>
+                    <input type="number" id="num_personas" name="num_personas" value="{{ reserva.num_personas }}" required>
+                </div>
+
+                <button type="submit" class="btn">Guardar Cambios</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

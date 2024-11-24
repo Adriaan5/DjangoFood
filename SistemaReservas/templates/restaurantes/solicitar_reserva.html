@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Reserva</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CarpetaCss/Restaurantes/solicitar_reserva.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Solicitar Reserva</h1>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_hora">Fecha y Hora de Reserva:</label>
+                <input type="datetime-local" id="fecha_hora" name="fecha_hora" required>
+            </div>
+            <div class="form-group">
+                <label for="num_personas">Número de Personas:</label>
+                <input type="number" id="num_personas" name="num_personas" min="1" required>
+            </div>
+            <button type="submit" class="btn submit-btn">Solicitar</button>
+            <a href="{% url 'logout' %}" class="btn logout-btn">Cerrar sesión</a>
+        </form>
+    </div>
+    <script src="{% static 'CarpetaJs/solicitar_reservas.js' %}"></script>
+</body>
+</html>

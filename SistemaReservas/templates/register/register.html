@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CarpetaCss/register/estilos_registro.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registrarse</h2>
+        <p>Por favor, completa el siguiente formulario para registrarte.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="id_username">Usuario</label>
+            {{ form.username }}
+            
+            <label for="id_email">Correo electrónico</label>
+            {{ form.email }}
+
+            <label for="id_telefono">Teléfono</label>
+            {{ form.telefono }}
+
+            <label for="id_password1">Contraseña</label>
+            {{ form.password1 }}
+
+            <label for="id_password2">Confirmar contraseña</label>
+            {{ form.password2 }}
+
+            <!-- Mostrar mensajes de error si existen -->
+            {% for field in form %}
+                {% if field.errors %}
+                    <ul class="errorlist">
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+            
+            <button type="submit" class="btn">Registrarse</button>
+        </form>
+    </div>
+</body>
+</html>

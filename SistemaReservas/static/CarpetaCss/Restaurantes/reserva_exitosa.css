@@ -1,0 +1,179 @@
+/* Reset y variables globales */
+:root {
+    --primary-color: #5867cc;
+    --primary-hover: #6b7ad4;
+    --background-start: #040821;
+    --background-end: #182578;
+    --text-color: #ffffff;
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(88, 103, 204, 0.2);
+    --transition-speed: 0.3s;
+    --nav-bg: rgba(4, 8, 33, 0.8);
+    --card-bg: rgba(0, 0, 0, 0.7);
+    --highlight-color: #ff6f61;
+}
+
+/* Animaciones */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos base */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-start);
+    margin: 0;
+    padding: 0;
+}
+
+/* Fondo de la página */
+.bg_home {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--background-end) 0%, var(--background-start) 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradientAnimation 15s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* Encabezado con solo h1 */
+.header_h1 {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(10px);
+    background-color: var(--nav-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: fadeIn 0.8s ease-out;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header_h1 h1 {
+    color: var(--text-color);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+/* Contenedor de la información (carta) */
+.container_1 {
+    padding: 100px 20px 20px; /* Ajusta para que no se superponga con el encabezado fijo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Asegura que la carta esté centrada */
+}
+
+.card {
+    background: var(--card-bg); /* Fondo translúcido */
+    color: var(--text-color);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo del botón de logout */
+.btn.logout-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--highlight-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.btn.logout-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Estilos adicionales para el layout */
+.container {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo de los detalles de la reserva */
+.info-container p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.info-container span {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+/* Botón de mostrar información */
+.show-info-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.show-info-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .header_h1 {
+        text-align: center;
+    }
+   
+    .header_h1 h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+

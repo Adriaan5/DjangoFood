@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccion de Comida</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CarpetaCss/comida/comida.css' %}">
+</head>
+
+<body>
+    
+    {% csrf_token %}
+    <div class="contenedor"> 
+        <div id="imagenes-container" class="imagenes-redondas">
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/chaufa.jpg' %}" alt="Comida1" onclick="seleccionarImagen('Imagenes/comida/chaufa.jpg'); console.log('Imagen seleccionada');">
+                <p>Chifa</p> 
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/pizza.jpg' %}" alt="Comida2" onclick="seleccionarImagen('Imagenes/comida/pizza.jpg'); console.log('Imagen seleccionada');">
+                <p>Pizza</p> 
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/comidaperuana.jpg' %}" alt="Comida3" onclick="seleccionarImagen('Imagenes/comida/comidaperuana.jpg'); console.log('Imagen seleccionada');">
+                <p>Peruana</p> 
+            </div>
+            
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/comidamexicana.jpg' %}" alt="Comida4" onclick="seleccionarImagen('Imagenes/comida/comidamexicana.jpg'); console.log('Imagen seleccionada');">
+                <p>Mexicana</p> 
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/sushi.jpg' %}" alt="Comida5" onclick="seleccionarImagen('Imagenes/comida/sushi.jpg'); console.log('Imagen seleccionada');">
+                <p>Sushi</p> 
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/hamburguesas.jpg' %}" alt="Comida6" onclick="seleccionarImagen('Imagenes/comida/hamburguesas.jpg'); console.log('Imagen seleccionada');">
+                <p> Hamburguesas</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/carnesparrillas.jpg' %}" alt="Comida7" onclick="seleccionarImagen('Imagenes/comida/carnesparrillas.jpg'); console.log('Imagen seleccionada');">
+                <p>Parrillas</p>          
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/postres.jpg' %}" alt="Comida8" onclick="seleccionarImagen('Imagenes/comida/postres.jpg'); console.log('Imagen seleccionada');">
+                <p>Postres</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/comidaespañola.jpg' %}" alt="Comida9" onclick="seleccionarImagen('Imagenes/comida/comidaespañola.jpg'); console.log('Imagen seleccionada');">
+                <p>Española</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/mariscos.jpg' %}" alt="Comida10" onclick="seleccionarImagen('Imagenes/comida/mariscos.jpg'); console.log('Imagen seleccionada');">
+                <p>Mariscos</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/bar.jpg' %}" alt="Comida11" onclick="seleccionarImagen('Imagenes/comida/bar.jpg'); console.log('Imagen seleccionada');">
+                <p>Bares</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/cafeteria.jpg' %}" alt="Comida12" onclick="seleccionarImagen('Imagenes/comida/cafeteria.jpg'); console.log('Imagen seleccionada');">
+                <p>Cafeterias</p>
+            </div>
+ 
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/panaderia.jpg' %}" alt="Comida13" onclick="seleccionarImagen('Imagenes/comida/panaderia.jpg'); console.log('Imagen seleccionada');">
+                <p>Panaderias</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/heladeria.jpg' %}" alt="Comida14" onclick="seleccionarImagen('Imagenes/comida/heladeria.jpg'); console.log('Imagen seleccionada');">
+                <p>Heladerias</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/desayuno.jpg' %}" alt="Comida15" onclick="seleccionarImagen('Imagenes/comida/desayuno.jpg'); console.log('Imagen seleccionada');">
+                <p>Desayunos</p>
+            </div>
+
+            <div class="imagen-texto">
+                <img src="{% static 'Imagenes/comida/chicharron.jpg' %}" alt="Comida16" onclick="seleccionarImagen('Imagenes/comida/chicharron.jpg'); console.log('Imagen seleccionada');">
+                <p>Chicharron</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/CarnesParrillasR.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Tierra Del Fuego</h2>
+                        <div class="restaurant-category">Carnes y Parrillas | Miraflores</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. Comandante Espinar 856
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">4.4 ★</div>
+                        <div class="reviews">17 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 120</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/ComidaPeruana.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Comida Peruana</h2>
+                        <div class="restaurant-category">Mariscos (no se que colocar) | Surco</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. no se que colocar
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">5 ★</div>
+                        <div class="reviews">0 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/Sushi.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Sushi</h2>
+                        <div class="restaurant-category">Sushi (no se que colocar) | Surco</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. no se que colocar
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">5 ★</div>
+                        <div class="reviews">0 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/ComidaMexicana.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Comida Mexicana</h2>
+                        <div class="restaurant-category">Mexicana (no se que colocar) | Miraflores</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. no se que colocar
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">3.8 ★</div>
+                        <div class="reviews">20 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/ComidaEspañola.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Comida Española</h2>
+                        <div class="restaurant-category">Español (no se que colocar) | Surquillo</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. no se que colocar
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">3.8 ★</div>
+                        <div class="reviews">20 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/Pizza.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Pizza</h2>
+                        <div class="restaurant-category">Pizza (no se que colocar) | Centro de Lima</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. no se que colocar
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">3.8 ★</div>
+                        <div class="reviews">20 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/Cafeterias.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Cafeterias</h2>
+                        <div class="restaurant-category">Cafes (no se que colocar) | Barranco</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. no se que colocar
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">3.8 ★</div>
+                        <div class="reviews">20 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor_restaurantes">
+        <div class="restaurantes">
+            <div class="restaurant-card">
+                <img src="{% static 'Imagenes/restaurantes/Bar.jpg' %}" alt="Restaurant" class="restaurant-image"> 
+                <div class="restaurant-info">
+                    <div class="restaurant-details">
+                        <h2 class="restaurant-name">Bares</h2>
+                        <div class="restaurant-category">Bares (no se que colocar) | Miraflores</div>
+                        <div class="restaurant-address">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Av. no se que colocar
+                        </div>
+                        <div class="features">
+                            <span class="feature-badge">Reservas</span>
+                            <span class="feature-badge">Para recoger</span>
+                            <span class="feature-badge">Delivery 36-42 min</span>
+                        </div>
+                    </div>
+                    <div class="restaurant-rating">
+                        <div class="rating">3.8 ★</div>
+                        <div class="reviews">20 Reviews</div>
+                        <div class="price">
+                            <div class="price-label">Precio promedio por persona</div>
+                            <div class="price-amount">S/ 70</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'CarpetaJs/comida.js' %}"></script>
+</body>
+</html>

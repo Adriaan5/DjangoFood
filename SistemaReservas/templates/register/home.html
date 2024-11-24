@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CarpetaCss/register/estilos_home.css' %}">
+</head>
+
+<body>
+    <header class="bg_home">
+        <div class="header_nav">
+            <div class="container">
+                <div class="welcome-section">
+                    <h1 class="main-title">Bienvenido a nuestro sistema de reservas</h1>
+                    <p class="welcome-text">Gestiona tus reservas de manera fácil y rápida</p>
+                </div>
+                <nav>
+                    <a href="{% url 'solicitar_reserva' %}" class="btn reserva-btn" id="solicitar-reserva"> Solicitar Reserva </a>
+                    <a href="{% url 'modificar_reserva' %}" class="btn reserva-btn" id="modificar-reserva"> Modificar Reserva </a> <!--id_reserva=reserva.id_reserva // Esto colocar con un if y else para lo de modificar-->
+                    <a href="{% url 'cancelar_reserva' %}" class="btn reserva-btn" id="cancelar-reserva"> Cancelar Reserva </a>
+                </nav>
+            </div>
+        </div>  
+    </header>
+    <div class="cerrar">
+        <a href="{% url 'logout' %}" class="btn logout-btn"> Cerrar sesión </a>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <script src="{% static 'CarpetaJs/home.js' %}"></script>
+</body>
+</html>
