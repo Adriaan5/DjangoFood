@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'SistemaReservas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestionreservas',
+        'NAME': 'gestion',
         'USER': 'postgres',
         'PASSWORD': 'psadrian1027',
         'HOST': 'localhost',
