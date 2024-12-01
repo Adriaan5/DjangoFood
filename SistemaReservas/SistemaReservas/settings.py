@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'SistemaReservas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestion',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'psadrian1027',
-        'HOST': 'localhost',
+        'HOST': 'db-foodfinder-aws.cvm2yu06eh51.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
