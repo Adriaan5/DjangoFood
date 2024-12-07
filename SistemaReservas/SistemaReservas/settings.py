@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-5h)f6+j4g-0y)k6d_4c=v6q2g-_m&c23qx5%e_-3v!0*p33f)b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['54.173.45.110','localhost']
+ALLOWED_HOSTS = ['54.173.45.110','www.foddiefinder.lat','localhost']
 
 
 # Application definition
